@@ -43,6 +43,7 @@ No additional dependencies required
 ## Live Demo
 
 Live demo created using GitHub Pages can be found here: [Live demo](https://layfully.github.io/UdacityLandingPage)
+![obraz](https://user-images.githubusercontent.com/15947565/230794602-bbe6dd1f-ce56-478d-b18d-e3ac1ecdf595.png)
 
 ## License
 
