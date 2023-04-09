@@ -1,11 +1,34 @@
-# UdacityLandingPage
+# Udacity Landing Page
+
+# Table of Contents
+
+- [Project Title](#udacity-landing-page)
+- [Table of Contents](#table-of-contents)
+- [Description](#description)
+- [Used Technologies](#used-technologies)
+- [Getting Started](#getting-started)
+- [Dependencies](#dependencies)
+- [Features](#features)
+- [Live Demo](#live-demo)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+
+## Description
 
 This project is a simple landing page that demonstrates how to manipulate the Document Object Model (DOM) using JavaScript. It consists of several sections, each with content, and a navigation bar that allows users to quickly navigate to any section on the page.
+
+## Used Technologies
+
+- CSS3
+- JavaScript
+- HTML5
 
 ## Getting Started
 
 To get started with this project, simply clone the repository and open the `index.html` file in your web browser.
 
+## Dependencies
+No additional dependencies required
 
 ## Features
 
@@ -16,6 +39,10 @@ To get started with this project, simply clone the repository and open the `inde
 - Scroll to top button
 - Hide navigation when idle
 - Show active section in the menu and in the website
+
+## Live Demo
+
+Live demo created using GitHub Pages can be found here: [Live demo](https://layfully.github.io/UdacityLandingPage)
 
 ## License
 
