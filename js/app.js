@@ -101,6 +101,9 @@ function setActiveClass() {
     const rect = section.getBoundingClientRect();
 
     if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+
+      console.log(`active section${section.id}`);
+
       const navItem = document.querySelector(`a[data-nav="${section.getAttribute('data-nav')}"]`);
 
       for (anchor of navigationAnchors) {
@@ -109,11 +112,11 @@ function setActiveClass() {
 
       navItem.classList.add('navbar__menu--active');
       section.classList.add('your-active-class');
-
-      return;
+      continue;
     }
-
-    section.classList.remove('your-active-class');
+    else {
+      section.classList.remove('your-active-class');
+    }
   }
 }
 
