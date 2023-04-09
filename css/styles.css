@@ -72,6 +72,9 @@ section {
 
 .navbar__menu li {
     display: inline-block;
+    color: black;
+    padding: 10px;
+    transition: all 300ms ease;
 }
 
 .navbar__menu .menu__link {
@@ -82,9 +85,9 @@ section {
     color: #000;
 }
 
-.navbar__menu .menu__link:hover {
+.navbar__menu .menu__link:hover, .navbar__menu--active {
     background: #333;
-    color: #fff;
+    color: #fff !important;
     transition: ease 0.3s all;
 }
 
@@ -95,6 +98,11 @@ section {
     top: 0;
     width: 100%;
     z-index: 5;
+    transition: all 300ms ease-out;
+}
+
+.page__header--hidden {
+    transform: translateY(-100%);
 }
 
 /* Footer Styles */
@@ -221,3 +229,29 @@ section.your-active-class .landing__container::after {
 		           rotate(-360deg);
 	}
 }
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #555;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    line-height: 50px;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: end;
+  }
+  
+  .scroll-to-top:before {
+    content: "\2191";
+  }
+  
+  .scroll-to-top.show {
+    display: flex;
+  }
