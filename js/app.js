@@ -84,7 +84,7 @@ function buildMenu() {
     anchor.textContent = data;
     anchor.classList.add('menu__link');
 
-    anchor.addEventListener('click', scrollTo);
+    anchor.addEventListener('click', scrollToElement);
 
     listItem.appendChild(anchor);
     navFragment.appendChild(listItem);
@@ -118,7 +118,7 @@ function setActiveClass() {
 }
 
 // Scroll to anchor ID using scrollTO event`
-function scrollTo(event) {
+function scrollToElement(event) {
   event.preventDefault();
   document.getElementById(getCleanHref(event.target)).scrollIntoView({ behavior: "smooth" });
 }
