@@ -37,14 +37,25 @@ let headerHideTimeout;
  * 
 */
 
+/**
+ * @description hides a header by applying hidden class to it
+ */
 function hideHeader() {
   header.classList.add('page__header--hidden');
 }
 
+/**
+ * @description shows a header by removing hidden class to it
+ */
 function showHeader() {
   header.classList.remove('page__header--hidden');
 }
 
+/**
+ * @description check if given element is in viewport
+ * @param {Element} element - html element which will be checked
+ * @returns {boolean} - value which tells whether given element is in viewport
+ */
 function isInViewport(element) {
   const rect = element.getBoundingClientRect();
   return (
@@ -55,14 +66,16 @@ function isInViewport(element) {
   );
 }
 
-
 /**
  * End Helper Functions
  * Begin Main Functions
  * 
 */
 
-// build the nav
+/**
+ * @description dynamically builds navigation menu for sections. Adds scrolling on click to sections
+ *     fills navigationAnchors array with created anchors.
+ */
 function buildMenu() {
   const navFragment = document.createDocumentFragment()
 
@@ -85,9 +98,11 @@ function buildMenu() {
   navbar.appendChild(navFragment);
 }
 
-// Adds the class your-active-class to the currently active section
-// and the class navbar__menu--active to the corresponding navigation link.
-// It removes both classes from all other sections and navigation links
+/**
+ * @description adds css class your-active class to the currently active section
+ *     Adds navbar__menu--active css class to the corresponding navigation link.
+ *     Removes both css classes from all other sections and navigation links
+ */
 function setActiveClass() {
   for (section of sections) {
     const rect = section.getBoundingClientRect();
@@ -109,21 +124,28 @@ function setActiveClass() {
   }
 }
 
-// Scroll to anchor ID using scrollTO event`
+/**
+ * @description scrolls to the element that is target of the event and contains 'scroll-to' attribute
+ * @param {Event} event
+ */
 function scrollToElement(event) {
   document.getElementById(event.target.getAttribute('scroll-to')).scrollIntoView({ behavior: "smooth" });
 }
 
-// Shows and hides the navigation menu depending on whether the user is scrolling or not.
-// It uses a timer to hide the menu after a certain amount of time.
+/**
+ * @description controls visibility of the header html element.
+ *     On scroll shows it and after 1 second of idle hides it
+ */
 function controlVisibilityOfMenu() {
   window.clearTimeout(headerHideTimeout);
   headerHideTimeout = setTimeout(hideHeader, 1000);
   showHeader();
 }
 
-// Shows and hides the scroll-to-top button depending on whether the user
-// has scrolled past the height of the viewport.
+/**
+ * @description controls visibility of the scroll-to-top button.
+ *     Shows it when users scrolls down at least one viewport height and hides it if scroll is higher than that.
+ */
 function controlVisibilityOfToTopButton() {
   if (window.pageYOffset > pageFold) {
     scrollToTopButton.classList.add('show');
@@ -132,7 +154,9 @@ function controlVisibilityOfToTopButton() {
   }
 }
 
-
+/**
+ * @description smoothly scrolls to the top of the page
+ */
 function scrollToTop() {
   window.scrollTo({
     top: 0,
@@ -146,18 +170,17 @@ function scrollToTop() {
  * 
 */
 
-// Build menu 
-// Scroll to section on link click
+// event for building section navigation menu on load. Each button has on an click event for scrolling to the section 
 window.addEventListener('DOMContentLoaded', buildMenu)
 
-// Set sections as active
+// event for setting active class of section and item in navigation on scroll
 window.addEventListener('scroll', setActiveClass);
 
-// Show/Hide menu when scrolling/idle
+// event for controlling visibility of the menu on scroll
 window.addEventListener('scroll', controlVisibilityOfMenu);
 
-// Control visibility of scroll to top button
+// event for controlling visibility of the scroll-to-top button on scroll
 window.addEventListener('scroll', controlVisibilityOfToTopButton);
 
-// Scroll to top on button click
+// event for scrolling to the top of the page when scroll-to-top button is clicked
 scrollToTopButton.addEventListener('click', scrollToTop);
