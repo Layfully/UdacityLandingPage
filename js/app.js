@@ -45,11 +45,6 @@ function showHeader() {
   header.classList.remove('page__header--hidden');
 }
 
-//returns the value of its href attribute, without the leading # character
-function getCleanHref(element) {
-  return element.getAttribute('href').slice(1);
-}
-
 function isInViewport(element) {
   const rect = element.getBoundingClientRect();
   return (
@@ -76,12 +71,9 @@ function buildMenu() {
     const anchor = document.createElement('a');
     navigationAnchors.push(anchor);
 
-    const data = section.getAttribute('data-nav');
+    anchor.setAttribute('scroll-to', section.id);
 
-    anchor.setAttribute('href', `#${section.id}`);
-    anchor.setAttribute('data-nav', data);
-
-    anchor.textContent = data;
+    anchor.textContent = section.getAttribute('data-nav');
     anchor.classList.add('menu__link');
 
     anchor.addEventListener('click', scrollToElement);
@@ -101,10 +93,7 @@ function setActiveClass() {
     const rect = section.getBoundingClientRect();
 
     if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-
-      console.log(`active section${section.id}`);
-
-      const navItem = document.querySelector(`a[data-nav="${section.getAttribute('data-nav')}"]`);
+      const navItem = document.querySelector(`a[scroll-to="${section.id}"]`);
 
       for (anchor of navigationAnchors) {
         anchor.classList.remove('navbar__menu--active');
@@ -122,8 +111,7 @@ function setActiveClass() {
 
 // Scroll to anchor ID using scrollTO event`
 function scrollToElement(event) {
-  event.preventDefault();
-  document.getElementById(getCleanHref(event.target)).scrollIntoView({ behavior: "smooth" });
+  document.getElementById(event.target.getAttribute('scroll-to')).scrollIntoView({ behavior: "smooth" });
 }
 
 // Shows and hides the navigation menu depending on whether the user is scrolling or not.
