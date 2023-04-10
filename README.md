@@ -37,7 +37,6 @@ No additional dependencies required
 - Smooth scrolling animation when clicking on navigation links
 - Simple and easy-to-read code that demonstrates fundamental DOM manipulation techniques
 - Scroll to top button
-- Hide navigation when idle
 - Show active section in the menu and in the website
 
 ## Live Demo

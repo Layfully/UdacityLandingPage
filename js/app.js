@@ -133,16 +133,6 @@ function scrollToElement(event) {
 }
 
 /**
- * @description controls visibility of the header html element.
- *     On scroll shows it and after 1 second of idle hides it
- */
-function controlVisibilityOfMenu() {
-  window.clearTimeout(headerHideTimeout);
-  headerHideTimeout = setTimeout(hideHeader, 1000);
-  showHeader();
-}
-
-/**
  * @description controls visibility of the scroll-to-top button.
  *     Shows it when users scrolls down at least one viewport height and hides it if scroll is higher than that.
  */
@@ -175,9 +165,6 @@ window.addEventListener('DOMContentLoaded', buildMenu)
 
 // event for setting active class of section and item in navigation on scroll
 window.addEventListener('scroll', setActiveClass);
-
-// event for controlling visibility of the menu on scroll
-window.addEventListener('scroll', controlVisibilityOfMenu);
 
 // event for controlling visibility of the scroll-to-top button on scroll
 window.addEventListener('scroll', controlVisibilityOfToTopButton);
